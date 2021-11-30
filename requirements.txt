@@ -4,7 +4,6 @@
 #
 #    pip-compile setup.cfg
 #
---index-url https://artifactory.cloud.capitalone.com/artifactory/api/pypi/pypi-internalfacing/simple/
 
 cerberus==1.3.3
     # via edgetest
