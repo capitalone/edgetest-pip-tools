@@ -32,4 +32,4 @@ jobs:
             - name: Run flake8
               run: python -m flake8 edgetest_pip_tools
             - name: Run unit testing
-              run: python -m pytest tests --cov=edgetest_pip_tools --cov-fail-under=90
+              run: python -m pytest tests --cov=edgetest_pip_tools --cov-fail-under=80
