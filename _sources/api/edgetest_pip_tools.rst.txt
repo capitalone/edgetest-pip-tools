@@ -1,0 +1,19 @@
+edgetest\_pip\_tools package
+============================
+
+Submodules
+----------
+
+
+.. automodule:: edgetest_pip_tools.plugin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: edgetest_pip_tools
+   :members:
+   :undoc-members:
+   :show-inheritance:
