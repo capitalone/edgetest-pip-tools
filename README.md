@@ -22,6 +22,14 @@ Installation from PyPI:
 $ python -m pip install edgetest-pip-tools
 ```
 
+
+Installation from conda-forge:
+
+```console
+$ conda install -c conda-forge edgetest-pip-tools
+```
+
+
 Getting Started
 ---------------
 
