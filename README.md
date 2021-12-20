@@ -10,8 +10,6 @@ Table Of Contents
 
 - [Install](#install)
 - [Getting Started](#getting-started)
-- [Options](#options)
-- [Examples](#examples)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -23,6 +21,14 @@ Installation from PyPI:
 ```console
 $ python -m pip install edgetest-pip-tools
 ```
+
+
+Installation from conda-forge:
+
+```console
+$ conda install -c conda-forge edgetest-pip-tools
+```
+
 
 Getting Started
 ---------------
@@ -53,3 +59,17 @@ extras =
 
 Contributing
 ------------
+
+See our [developer documentation](https://capitalone.github.io/edgetest-pip-tools/developer.html).
+
+We welcome and appreciate your contributions! Before we can accept any contributions, we ask that you please be sure to
+sign the [Contributor License Agreement (CLA)](https://cla-assistant.io/capitalone/edgetest-pip-tools)
+
+This project adheres to the [Open Source Code of Conduct](https://developer.capitalone.com/resources/code-of-conduct/).
+By participating, you are expected to honor this code.
+
+License
+-------
+
+Apache-2.0
+
