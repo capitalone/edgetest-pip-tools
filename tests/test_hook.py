@@ -1,5 +1,6 @@
 """Test the hook through the CLI."""
 
+import platform
 from pathlib import Path
 from unittest.mock import PropertyMock, call, patch
 
@@ -56,11 +57,10 @@ PIP_LIST = """
 TABLE_OUTPUT = """
 
 ============= =============== =================== =================
- Environment   Passing tests   Upgraded packages   Package version
-------------- --------------- ------------------- -----------------
- myenv         True            myupgrade           0.2.0
+Environment   Passing tests   Upgraded packages   Package version
 ============= =============== =================== =================
-
+myenv         True            myupgrade           0.2.0
+============= =============== =================== =================
 """
 
 
@@ -101,17 +101,21 @@ def test_update_reqs(mock_popen, mock_cpopen, mock_builder):
         result = runner.invoke(cli, ["--config=setup.cfg", "--export"])
 
     env_loc = Path(loc) / ".edgetest" / "myenv"
+    if platform.system() == "Windows":
+        py_loc = str(Path(env_loc)  / "Scripts" / "python")
+    else:
+        py_loc = str(Path(env_loc)  / "bin" / "python")
 
     assert result.exit_code == 0
     assert mock_popen.call_args_list == [
         call(
-            (f"{str(env_loc)}/bin/python", "-m", "pip", "install", "."),
+            (f"{str(py_loc)}", "-m", "pip", "install", "."),
             stdout=-1,
             universal_newlines=True,
         ),
         call(
             (
-                f"{str(env_loc)}/bin/python",
+                f"{str(py_loc)}",
                 "-m",
                 "pip",
                 "install",
@@ -122,18 +126,18 @@ def test_update_reqs(mock_popen, mock_cpopen, mock_builder):
             universal_newlines=True,
         ),
         call(
-            (f"{str(env_loc)}/bin/python", "-m", "pip", "list", "--format", "json"),
+            (f"{str(py_loc)}", "-m", "pip", "list", "--format", "json"),
             stdout=-1,
             universal_newlines=True,
         ),
         call(
-            (f"{str(env_loc)}/bin/python", "-m", "pip", "list", "--format", "json"),
+            (f"{str(py_loc)}", "-m", "pip", "list", "--format", "json"),
             stdout=-1,
             universal_newlines=True,
         ),
         call(
             (
-                f"{str(env_loc)}/bin/python",
+                f"{str(py_loc)}",
                 "-m",
                 "piptools",
                 "compile",
