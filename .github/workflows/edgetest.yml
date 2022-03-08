@@ -1,4 +1,4 @@
- This workflow runs edgetest on edgetest-pip-tools @ 17:35 UTC Fridays.
+# This workflow runs edgetest on edgetest-pip-tools @ 17:35 UTC Fridays.
 # https://github.com/fdosani/run-edgetest-action
 
 name: Run edgetest
