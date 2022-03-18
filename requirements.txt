@@ -6,11 +6,11 @@
 #
 cerberus==1.3.4
     # via edgetest
-click==8.0.3
+click==8.0.4
     # via
     #   edgetest
     #   pip-tools
-edgetest==2021.12.5
+edgetest==2022.3.0
     # via edgetest-pip-tools (setup.cfg)
 packaging==21.3
     # via edgetest
