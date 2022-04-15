@@ -20,7 +20,7 @@ pip-tools==6.6.0
     # via edgetest-pip-tools (setup.cfg)
 pluggy==1.0.0
     # via edgetest
-pyparsing==3.0.7
+pyparsing==3.0.8
     # via packaging
 tabulate==0.8.9
     # via edgetest
