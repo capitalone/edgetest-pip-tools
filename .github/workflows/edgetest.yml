@@ -4,7 +4,7 @@
 name: Run edgetest
 on:
   schedule:
-    - cron: '35 17 * * 5'
+    - cron: '35 17 * * 4'
 jobs:
   edgetest:
     runs-on: ubuntu-latest
@@ -14,8 +14,9 @@ jobs:
         with:
           ref: dev
       - id: run-edgetest
-        uses: fdosani/run-edgetest-action@v1.1
+        uses: fdosani/run-edgetest-action@v1.2
         with:
           edgetest-flags: '-c setup.cfg --export'
           base-branch: 'dev'
           skip-pr: 'false'
+          python-version: 3.9
