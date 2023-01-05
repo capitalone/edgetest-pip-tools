@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Developer instructions" href="developer.html" /><link rel="prev" title="Welcome to the edgetest-pip-tools documentation!" href="index.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <!-- Generated with Sphinx 6.1.0 and Furo 2022.12.07 -->
         <title>Quick Start - pip-tools integration for edgetest documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -151,7 +151,7 @@
   <span class="sidebar-brand-text">pip-tools integration for edgetest  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -187,7 +187,9 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -202,36 +204,36 @@
         </div>
         <article role="main">
           <section id="quick-start">
-<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">#</a></h1>
+<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this heading">#</a></h1>
 <section id="install">
-<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">#</a></h2>
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this heading">#</a></h2>
 <p>Installation from PyPI:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python -m pip install edgetest-pip-tools
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>edgetest-pip-tools
 </pre></div>
 </div>
 <p>Installation from conda-forge:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda install -c conda-forge edgetest-pip-tools
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>edgetest-pip-tools
 </pre></div>
 </div>
 </section>
 <section id="getting-started">
-<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">#</a></h2>
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h2>
 <p>This <cite>edgetest</cite> plugin runs after the test execution. If the last environment successfully
 passes, this plugin will refresh <cite>requirements.txt</cite> using <cite>pip-tools</cite>. To use this plugin,
 supply <code class="docutils literal notranslate"><span class="pre">--export</span></code> to your CLI call:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>edgetest --config setup.cfg --export
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>edgetest<span class="w"> </span>--config<span class="w"> </span>setup.cfg<span class="w"> </span>--export
 </pre></div>
 </div>
 <p>If you want to specify a PyPI index, supply <cite>index_url</cite> in your configuration:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[edgetest.pip_tools]</span><span class="w"></span>
-<span class="na">index_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">...</span><span class="w"></span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[edgetest.pip_tools]</span>
+<span class="na">index_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">...</span>
 </pre></div>
 </div>
 <p>If you want to include extra installations in your <cite>pip-tools</cite> call add a newline-separated list of
 extras:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[edgetest.pip_tools]</span><span class="w"></span>
-<span class="na">extras</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">    </span><span class="na">complete</span><span class="w"></span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[edgetest.pip_tools]</span>
+<span class="na">extras</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="na">complete</span>
 </pre></div>
 </div>
 <div class="admonition important">
@@ -253,10 +255,10 @@ extras:</p>
                 </div>
                 <div class="title">Developer instructions</div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
           <a class="prev-page" href="index.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
@@ -278,9 +280,7 @@ extras:</p>
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -292,7 +292,7 @@ extras:</p>
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
-            Contents
+            On this page
           </span>
         </div>
         <div class="toc-tree-container">
@@ -313,9 +313,8 @@ extras:</p>
     </aside>
   </div>
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>

@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="edgetest_pip_tools" href="modules.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <!-- Generated with Sphinx 6.1.0 and Furo 2022.12.07 -->
         <title>edgetest_pip_tools package - pip-tools integration for edgetest documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -151,7 +151,7 @@
   <span class="sidebar-brand-text">pip-tools integration for edgetest  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -187,7 +187,9 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -202,44 +204,47 @@
         </div>
         <article role="main">
           <section id="edgetest-pip-tools-package">
-<h1>edgetest_pip_tools package<a class="headerlink" href="#edgetest-pip-tools-package" title="Permalink to this headline">#</a></h1>
+<h1>edgetest_pip_tools package<a class="headerlink" href="#edgetest-pip-tools-package" title="Permalink to this heading">#</a></h1>
 <section id="module-edgetest_pip_tools.plugin">
-<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-edgetest_pip_tools.plugin" title="Permalink to this headline">#</a></h2>
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-edgetest_pip_tools.plugin" title="Permalink to this heading">#</a></h2>
 <p>Plugin for refreshing a locked requirements file.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="edgetest_pip_tools.plugin.addoption">
-<span class="sig-prename descclassname"><span class="pre">edgetest_pip_tools.plugin.</span></span><span class="sig-name descname"><span class="pre">addoption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">edgetest.schema.Schema</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edgetest_pip_tools/plugin.html#addoption"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#edgetest_pip_tools.plugin.addoption" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">edgetest_pip_tools.plugin.</span></span><span class="sig-name descname"><span class="pre">addoption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Schema</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edgetest_pip_tools/plugin.html#addoption"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#edgetest_pip_tools.plugin.addoption" title="Permalink to this definition">#</a></dt>
 <dd><p>Add configuration options for pip-tools.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>schema</strong> (<em>Schema</em>) – The schema class.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="edgetest_pip_tools.plugin.get_reqfile">
-<span class="sig-prename descclassname"><span class="pre">edgetest_pip_tools.plugin.</span></span><span class="sig-name descname"><span class="pre">get_reqfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">click.core.Context</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">pathlib.Path</span></span></span><a class="reference internal" href="../_modules/edgetest_pip_tools/plugin.html#get_reqfile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#edgetest_pip_tools.plugin.get_reqfile" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">edgetest_pip_tools.plugin.</span></span><span class="sig-name descname"><span class="pre">get_reqfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Context</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Path</span></span></span><a class="reference internal" href="../_modules/edgetest_pip_tools/plugin.html#get_reqfile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#edgetest_pip_tools.plugin.get_reqfile" title="Permalink to this definition">#</a></dt>
 <dd><p>Get the requirements file to supply to <code class="docutils literal notranslate"><span class="pre">pip-tools</span></code>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ctx</strong> (<em>click.Context</em>) – The context for the CLI call.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Path to the requirements file.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Path</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="edgetest_pip_tools.plugin.post_run_hook">
 <span class="sig-prename descclassname"><span class="pre">edgetest_pip_tools.plugin.</span></span><span class="sig-name descname"><span class="pre">post_run_hook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">testers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edgetest_pip_tools/plugin.html#post_run_hook"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#edgetest_pip_tools.plugin.post_run_hook" title="Permalink to this definition">#</a></dt>
 <dd><p>Refresh a locked requirements file based on the test output.</p>
 </dd></dl>
+
 </section>
 <section id="module-edgetest_pip_tools">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-edgetest_pip_tools" title="Permalink to this headline">#</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-edgetest_pip_tools" title="Permalink to this heading">#</a></h2>
 <p>pip-tools integration for edgetest &lt;<a class="reference external" href="https://github.com/capitalone/edgetest-pip-tools">https://github.com/capitalone/edgetest-pip-tools</a>&gt;</p>
 </section>
 </section>
@@ -251,7 +256,7 @@
         <div class="related-pages">
           
           <a class="prev-page" href="modules.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
@@ -273,9 +278,7 @@
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -287,14 +290,19 @@
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
-            Contents
+            On this page
           </span>
         </div>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">edgetest_pip_tools package</a><ul>
-<li><a class="reference internal" href="#module-edgetest_pip_tools.plugin">Submodules</a></li>
+<li><a class="reference internal" href="#module-edgetest_pip_tools.plugin">Submodules</a><ul>
+<li><a class="reference internal" href="#edgetest_pip_tools.plugin.addoption"><code class="docutils literal notranslate"><span class="pre">addoption()</span></code></a></li>
+<li><a class="reference internal" href="#edgetest_pip_tools.plugin.get_reqfile"><code class="docutils literal notranslate"><span class="pre">get_reqfile()</span></code></a></li>
+<li><a class="reference internal" href="#edgetest_pip_tools.plugin.post_run_hook"><code class="docutils literal notranslate"><span class="pre">post_run_hook()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-edgetest_pip_tools">Module contents</a></li>
 </ul>
 </li>
@@ -308,9 +316,8 @@
     </aside>
   </div>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
