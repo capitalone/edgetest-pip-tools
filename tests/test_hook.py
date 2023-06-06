@@ -57,6 +57,7 @@ command = "pytest tests -m 'not integration'"
 
 [edgetest.pip_tools]
 index_url = "myindexurl"
+extras = "complete,another"
 """
 
 
@@ -79,7 +80,7 @@ upgrade = ["myupgrade"]
 command = "pytest tests -m 'not integration'"
 
 [edgetest.pip_tools]
-extras = ["complete"]
+extras = "complete,another"
 """
 
 
@@ -134,8 +135,6 @@ def test_addoption_toml(config, tmpdir):
     assert validator.validate(cfg)
 
 
-
-
 @patch("edgetest.lib.EnvBuilder", autospec=True)
 @patch("edgetest.core.Popen", autospec=True)
 @patch("edgetest.utils.Popen", autospec=True)
@@ -156,9 +155,9 @@ def test_update_reqs_cfg(mock_popen, mock_cpopen, mock_builder):
 
     env_loc = Path(loc) / ".edgetest" / "myenv"
     if platform.system() == "Windows":
-        py_loc = str(Path(env_loc)  / "Scripts" / "python")
+        py_loc = str(Path(env_loc) / "Scripts" / "python")
     else:
-        py_loc = str(Path(env_loc)  / "bin" / "python")
+        py_loc = str(Path(env_loc) / "bin" / "python")
 
     assert result.exit_code == 0
     assert mock_popen.call_args_list == [
@@ -206,7 +205,6 @@ def test_update_reqs_cfg(mock_popen, mock_cpopen, mock_builder):
     ]
 
 
-
 @patch("edgetest.lib.EnvBuilder", autospec=True)
 @patch("edgetest.core.Popen", autospec=True)
 @patch("edgetest.utils.Popen", autospec=True)
@@ -222,14 +220,13 @@ def test_update_reqs_toml(mock_popen, mock_cpopen, mock_builder):
     with runner.isolated_filesystem() as loc:
         with open("pyproject.toml", "w") as outfile:
             outfile.write(TOML_ART)
-        print("xxxx", loc)
-        result = runner.invoke(cli, [f"--config={loc}/pyproject.toml", "--export"])
+        result = runner.invoke(cli, [f"--config=pyproject.toml", "--export"])
 
     env_loc = Path(loc) / ".edgetest" / "myenv"
     if platform.system() == "Windows":
-        py_loc = str(Path(env_loc)  / "Scripts" / "python")
+        py_loc = str(Path(env_loc) / "Scripts" / "python")
     else:
-        py_loc = str(Path(env_loc)  / "bin" / "python")
+        py_loc = str(Path(env_loc) / "bin" / "python")
 
     assert result.exit_code == 0
     assert mock_popen.call_args_list == [
@@ -267,6 +264,7 @@ def test_update_reqs_toml(mock_popen, mock_cpopen, mock_builder):
                 "piptools",
                 "compile",
                 "-U",
+                "--extra=complete,another",
                 "--index-url=myindexurl",
                 "--output-file=requirements.txt",
                 "pyproject.toml",
