@@ -9,7 +9,6 @@ import pluggy
 from edgetest.logger import get_logger
 from edgetest.schema import Schema
 from edgetest.utils import _run_command
-
 from tomlkit import TOMLDocument, load
 
 LOG = get_logger(__name__)
