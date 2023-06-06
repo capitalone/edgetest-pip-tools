@@ -10,6 +10,8 @@ from edgetest.logger import get_logger
 from edgetest.schema import Schema
 from edgetest.utils import _run_command
 
+from tomlkit import TOMLDocument, load
+
 LOG = get_logger(__name__)
 
 hookimpl = pluggy.HookimplMarker("edgetest")
@@ -58,6 +60,12 @@ def get_reqfile(ctx: click.Context) -> Path:
         parser = ConfigParser()
         parser.read(Path(ctx.params["config"]))
         if "options" in parser and parser.get("options", "install_requires"):
+            reqfile = Path(ctx.params["config"])
+        else:
+            reqfile = Path(ctx.params["requirements"])
+    elif Path(ctx.params["config"]).name == "pyproject.toml":
+        parser = load(open(Path(ctx.params["config"])))
+        if "dependencies" in parser:
             reqfile = Path(ctx.params["config"])
         else:
             reqfile = Path(ctx.params["requirements"])
