@@ -65,7 +65,7 @@ def get_reqfile(ctx: click.Context) -> Path:
             reqfile = Path(ctx.params["requirements"])
     elif Path(ctx.params["config"]).name == "pyproject.toml":
         parser = load(open(Path(ctx.params["config"])))
-        if "dependencies" in parser:
+        if "dependencies" in parser["project"]:
             reqfile = Path(ctx.params["config"])
         else:
             reqfile = Path(ctx.params["requirements"])
