@@ -2,7 +2,7 @@
 
 from configparser import ConfigParser
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any
 
 import click
 import pluggy
@@ -54,6 +54,7 @@ def get_reqfile(ctx: click.Context) -> Path:
     Path
         Path to the requirements file.
     """
+    parser: Any
     if Path(ctx.params["config"]).name == "setup.cfg":
         # Check for the install_requires
         parser = ConfigParser()
