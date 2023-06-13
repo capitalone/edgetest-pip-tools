@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Developer instructions" href="developer.html" /><link rel="prev" title="Welcome to the edgetest-pip-tools documentation!" href="index.html" />
 
-    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
+    <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
         <title>Quick Start - pip-tools integration for edgetest documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -164,7 +164,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api/modules.html">edgetest_pip_tools</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api/modules.html">edgetest_pip_tools</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of edgetest_pip_tools</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="api/edgetest_pip_tools.html">edgetest_pip_tools package</a></li>
 </ul>
 </li>
@@ -221,21 +221,39 @@
 <p>This <cite>edgetest</cite> plugin runs after the test execution. If the last environment successfully
 passes, this plugin will refresh <cite>requirements.txt</cite> using <cite>pip-tools</cite>. To use this plugin,
 supply <code class="docutils literal notranslate"><span class="pre">--export</span></code> to your CLI call:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>edgetest<span class="w"> </span>--config<span class="w"> </span>setup.cfg<span class="w"> </span>--export
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">.cfg</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">.toml</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>edgetest<span class="w"> </span>--config<span class="w"> </span>setup.cfg<span class="w"> </span>--export
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>edgetest<span class="w"> </span>--config<span class="w"> </span>pyproject.toml<span class="w"> </span>--export
+</pre></div>
+</div>
+</div></div>
 <p>If you want to specify a PyPI index, supply <cite>index_url</cite> in your configuration:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[edgetest.pip_tools]</span>
-<span class="na">index_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">...</span>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">.cfg</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">.toml</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[edgetest.pip_tools]</span>
+<span class="na">index_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://myindex.com</span>
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[edgetest.pip_tools]</span>
+<span class="n">index_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://myindex.com&quot;</span>
+</pre></div>
+</div>
+</div></div>
 <p>If you want to include extra installations in your <cite>pip-tools</cite> call add a newline-separated list of
 extras:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[edgetest.pip_tools]</span>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">.cfg</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">.toml</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[edgetest.pip_tools]</span>
 <span class="na">extras</span><span class="w"> </span><span class="o">=</span>
 <span class="w">    </span><span class="na">complete</span>
+<span class="w">    </span><span class="na">another</span>
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[edgetest.pip_tools]</span>
+<span class="n">extras</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;complete,another&quot;</span>
+</pre></div>
+</div>
+</div></div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Extra installations are only available with PEP-517 compliant installations.</p>
@@ -318,5 +336,6 @@ extras:</p>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/tabs.js"></script>
     </body>
 </html>

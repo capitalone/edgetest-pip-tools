@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
+    <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
         <title>edgetest_pip_tools.plugin - pip-tools integration for edgetest documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -163,7 +163,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../api/modules.html">edgetest_pip_tools</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api/modules.html">edgetest_pip_tools</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of edgetest_pip_tools</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/edgetest_pip_tools.html">edgetest_pip_tools package</a></li>
 </ul>
 </li>
@@ -206,13 +206,14 @@
 
 <span class="kn">from</span> <span class="nn">configparser</span> <span class="kn">import</span> <span class="n">ConfigParser</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span>
 
 <span class="kn">import</span> <span class="nn">click</span>
 <span class="kn">import</span> <span class="nn">pluggy</span>
 <span class="kn">from</span> <span class="nn">edgetest.logger</span> <span class="kn">import</span> <span class="n">get_logger</span>
 <span class="kn">from</span> <span class="nn">edgetest.schema</span> <span class="kn">import</span> <span class="n">Schema</span>
 <span class="kn">from</span> <span class="nn">edgetest.utils</span> <span class="kn">import</span> <span class="n">_run_command</span>
+<span class="kn">from</span> <span class="nn">tomlkit</span> <span class="kn">import</span> <span class="n">load</span>
 
 <span class="n">LOG</span> <span class="o">=</span> <span class="n">get_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
@@ -257,11 +258,18 @@
 <span class="sd">    Path</span>
 <span class="sd">        Path to the requirements file.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">parser</span><span class="p">:</span> <span class="n">Any</span>
     <span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;config&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;setup.cfg&quot;</span><span class="p">:</span>
         <span class="c1"># Check for the install_requires</span>
         <span class="n">parser</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">()</span>
         <span class="n">parser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;config&quot;</span><span class="p">]))</span>
         <span class="k">if</span> <span class="s2">&quot;options&quot;</span> <span class="ow">in</span> <span class="n">parser</span> <span class="ow">and</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;options&quot;</span><span class="p">,</span> <span class="s2">&quot;install_requires&quot;</span><span class="p">):</span>
+            <span class="n">reqfile</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;config&quot;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">reqfile</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;requirements&quot;</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">Path</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;config&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;pyproject.toml&quot;</span><span class="p">:</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;config&quot;</span><span class="p">])))</span>
+        <span class="k">if</span> <span class="s2">&quot;dependencies&quot;</span> <span class="ow">in</span> <span class="n">parser</span><span class="p">[</span><span class="s2">&quot;project&quot;</span><span class="p">]:</span>
             <span class="n">reqfile</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;config&quot;</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">reqfile</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;requirements&quot;</span><span class="p">])</span>
