@@ -2,13 +2,14 @@
 
 from configparser import ConfigParser
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any
 
 import click
 import pluggy
 from edgetest.logger import get_logger
 from edgetest.schema import Schema
 from edgetest.utils import _run_command
+from tomlkit import load
 
 LOG = get_logger(__name__)
 
@@ -53,11 +54,18 @@ def get_reqfile(ctx: click.Context) -> Path:
     Path
         Path to the requirements file.
     """
+    parser: Any
     if Path(ctx.params["config"]).name == "setup.cfg":
         # Check for the install_requires
         parser = ConfigParser()
         parser.read(Path(ctx.params["config"]))
         if "options" in parser and parser.get("options", "install_requires"):
+            reqfile = Path(ctx.params["config"])
+        else:
+            reqfile = Path(ctx.params["requirements"])
+    elif Path(ctx.params["config"]).name == "pyproject.toml":
+        parser = load(open(Path(ctx.params["config"])))
+        if "dependencies" in parser["project"]:
             reqfile = Path(ctx.params["config"])
         else:
             reqfile = Path(ctx.params["requirements"])
