@@ -18,7 +18,7 @@ packaging==23.0
     # via
     #   build
     #   edgetest
-pip-tools==6.14.0
+pip-tools==7.3.0
     # via edgetest-pip-tools (setup.cfg)
 pluggy==1.0.0
     # via edgetest
@@ -30,9 +30,10 @@ tomli==2.0.1
     # via
     #   build
     #   pip-tools
+    #   pyproject-hooks
 tomlkit==0.11.4
     # via edgetest
-wheel==0.40.0
+wheel==0.41.1
     # via pip-tools
 
 # The following packages are considered to be unsafe in a requirements file:
