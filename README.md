@@ -2,8 +2,8 @@
 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/edgetest-pip-tools)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
-[![PyPI version](https://badge.fury.io/py/datacompy.svg)](https://badge.fury.io/py/edgetest-pip-tools)
-[![Anaconda-Server Badge](https://anaconda.org/conda-forge/datacompy/badges/version.svg)](https://anaconda.org/conda-forge/edgetest-pip-tools)
+[![PyPI version](https://badge.fury.io/py/edgetest-pip-tools.svg)](https://badge.fury.io/py/edgetest-pip-tools)
+[![Anaconda-Server Badge](https://anaconda.org/conda-forge/edgetest-pip-tools/badges/version.svg)](https://anaconda.org/conda-forge/edgetest-pip-tools)
 
 
 [Full Documentation](https://capitalone.github.io/edgetest-pip-tools/)
@@ -75,4 +75,3 @@ License
 -------
 
 Apache-2.0
-
