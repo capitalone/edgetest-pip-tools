@@ -30,7 +30,6 @@ tomli==2.0.1
     # via
     #   build
     #   pip-tools
-    #   pyproject-hooks
 tomlkit==0.11.4
     # via edgetest
 wheel==0.41.2
