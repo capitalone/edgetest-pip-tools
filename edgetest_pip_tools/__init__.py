@@ -1,6 +1,6 @@
 """Package initialization."""
 
-__version__ = "2023.6.0"
+__version__ = "2023.8.0"
 
 __title__ = "edgetest-pip-tools"
 __description__ = "pip-tools integration for edgetest"
