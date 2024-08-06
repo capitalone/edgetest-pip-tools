@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # Configuration file for the Sphinx documentation builder.
 #
@@ -25,7 +24,7 @@ copyright = "2021, Akshay Gupta"
 author = "Akshay Gupta"
 
 # The short X.Y version
-version = "2023.8.0"
+version = "2024.8.0"
 # The full version, including alpha/beta/rc tags
 release = ""
 

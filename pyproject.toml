@@ -1,0 +1,169 @@
+[project]
+name = "edgetest-pip-tools"
+requires-python = ">=3.8.0"
+description = "pip-tools integration for edgetest"
+authors = [
+    { name = "Akshay Gupta", email = "akshay.gupta2@capitalone.com" },
+    { name = "Faisal Dosani", email = "faisal.dosani@capitalone.com" },
+    { name = "Jacob Dawang", email = "jacob.dawang@capitalone.com" }
+]
+license = { text = "Apache Software License" }
+classifiers = [
+	"Intended Audience :: Developers",
+	"Natural Language :: English",
+	"Operating System :: OS Independent",
+	"Programming Language :: Python",
+	"Programming Language :: Python :: 3",
+	"Programming Language :: Python :: 3 :: Only",
+	"Programming Language :: Python :: 3.8",
+	"Programming Language :: Python :: 3.9",
+	"Programming Language :: Python :: 3.10",
+	"Programming Language :: Python :: 3.11",
+]
+dependencies = ["edgetest>2024.4.0"]
+dynamic = ["readme", "version"]
+
+[project.optional-dependencies]
+docs = [
+	"furo",
+	"sphinx",
+	"sphinx-copybutton",
+	"sphinx-tabs",
+]
+tests = [
+	"coverage",
+	"pytest",
+	"pytest-cov",
+]
+qa = [
+    "mypy",
+	"pip-tools",
+	"pre-commit",
+    "ruff~=0.5",
+	"types-click",
+]
+build = [
+	"build",
+	"twine",
+	"wheel",
+	"bumpver",
+]
+dev = [
+    "edgetest-pip-tools[docs]",
+    "edgetest-pip-tools[tests]",
+    "edgetest-pip-tools[qa]",
+    "edgetest-pip-tools[build]",
+]
+
+[project.urls]
+"Documentation" = "https://capitalone.github.io/edgetest-pip-tools/"
+"Bug Tracker" = "https://github.com/capitalone/edgetest-pip-tools/issues"
+"Source Code" = "https://github.com/capitalone/edgetest-pip-tools"
+
+[project.entry-points."edgetest"]
+piptools = "edgetest_pip_tools.plugin"
+
+# Build system
+[build-system]
+requires = ["setuptools>=64.0.0"]
+build-backend = "setuptools.build_meta"
+
+##############################################################################
+# Setuptools configuration
+##############################################################################
+
+[tool.setuptools]
+include-package-data = true
+zip-safe = false
+
+[tool.setuptools.dynamic]
+version = { attr = "edgetest_pip_tools.__version__" }
+readme = { file = ["README.md"], content-type = "text/markdown" }
+
+##############################################################################
+# Tooling
+##############################################################################
+
+# BUMPVER --------------------------------------------------------------------
+
+[bumpver]
+current_version = "2024.8.0"
+version_pattern = "YYYY.MM.INC0"
+
+[bumpver.file_patterns]
+"docs/source/conf.py" = [
+	'version = "{version}"',
+]
+"pyproject.toml" = [
+	'current_version = "{version}"',
+]
+"edgetest_pip_tools/__init__.py" = [
+	'__version__ = "{version}"',
+]
+
+# MYPY -----------------------------------------------------------------------
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+allow_redefinition = true
+disable_error_code = "empty-body"
+
+# PYTEST ---------------------------------------------------------------------
+
+[tool.pytest.ini_options]
+markers = [
+    "unit: mark unit tests that do not require external interfaces and use mocking",
+    "integration: mark test that interact with an external system",
+]
+addopts = "--verbose"
+
+# RUFF -----------------------------------------------------------------------
+
+[tool.ruff]
+extend-include = ["*.ipynb"]
+target-version = "py39"
+
+[tool.ruff.lint]
+preview = true
+select = [
+	"E",  # pycodestyle errors
+	"W",  # pycodestyle warnings
+	"F",  # pyflakes
+	"D",  # pydocstyle
+	"I",  # isort
+	"UP",  # pyupgrade
+	"B",  # flake8-bugbear
+	"C",  # flake8-comprehensions
+	"T20",  # flake8-print
+	"TID252",  # flake8-tidy-imports ban relative imports
+	"SIM",  # flake8-simplify
+	"LOG",  # flake8-logging
+	"RUF",  # Ruff errors
+]
+ignore = [
+	"C901",  # Add back in later
+	"E111",  # Check indentation level. Using formatter instead.
+	"E114",  # Check indentation level. Using formatter instead.
+	"E117",  # Check indentation level. Using formatter instead.
+	"E203",  # Check whitespace. Using formatter instead.
+	"E501",  # Line too long. Using formatter instead.
+	"D206",  # Docstring indentation. Using formatter instead.
+	"D300",  # Use triple single quotes. Using formatter instead.
+	"SIM108",  # Use ternary operator instead of if-else blocks.
+	"SIM105",  # Use ``contextlib.suppress(FileNotFoundError)`` insetad of try - execpt - pass.
+	"UP035",  # ``typing.x`` is deprecated, use ``x`` instead
+	"UP006",  # ``typing.x`` is deprecated, use ``x`` instead
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402"]
+"**/{tests,docs}/*" = ["E402", "D", "F841", "ARG"]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
