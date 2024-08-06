@@ -190,9 +190,8 @@ def test_update_reqs_cfg(mock_popen, mock_cpopen, mock_builder):
         ),
         call(
             (
-                f"{str(py_loc)}",
-                "-m",
-                "piptools",
+                "uv",
+                "pip",
                 "compile",
                 "-U",
                 "--index-url=myindexurl",
@@ -259,9 +258,8 @@ def test_update_reqs_toml(mock_popen, mock_cpopen, mock_builder):
         ),
         call(
             (
-                f"{str(py_loc)}",
-                "-m",
-                "piptools",
+                "uv",
+                "pip",
                 "compile",
                 "-U",
                 "--extra=complete,another",
