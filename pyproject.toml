@@ -39,7 +39,7 @@ qa = [
     "mypy",
 	"pip-tools",
 	"pre-commit",
-    "ruff==0.5",
+    "ruff~=0.5",
 	"types-click",
 ]
 build = [
@@ -56,9 +56,9 @@ dev = [
 ]
 
 [project.urls]
-"Documentation" = https://capitalone.github.io/edgetest-pip-tools/
-"Bug Tracker" = https://github.com/capitalone/edgetest-pip-tools/issues
-"Source Code" = https://github.com/capitalone/edgetest-pip-tools
+"Documentation" = "https://capitalone.github.io/edgetest-pip-tools/"
+"Bug Tracker" = "https://github.com/capitalone/edgetest-pip-tools/issues"
+"Source Code" = "https://github.com/capitalone/edgetest-pip-tools"
 
 [project.entry-points."edgetest"]
 piptools = "edgetest_pip_tools.plugin"
@@ -90,7 +90,7 @@ readme = { file = ["README.md"], content-type = "text/markdown" }
 current_version = "2023.8.0"
 version_pattern = "YYYY.MM.INC0"
 commit_message = "Bump {old_version} to {new_version}"
-commit = True
+commit = true
 
 [bumpver.file_patterns]
 "docs/source/conf.py" = [
@@ -106,7 +106,7 @@ commit = True
 # MYPY -----------------------------------------------------------------------
 
 [tool.mypy]
-python_version = 3.10
+python_version = "3.10"
 warn_return_any = true
 warn_unused_configs = true
 ignore_missing_imports = true
@@ -130,7 +130,6 @@ target-version = "py39"
 
 [tool.ruff.lint]
 preview = true
-ignore-init-module-imports = true
 select = [
 	"E",  # pycodestyle errors
 	"W",  # pycodestyle warnings

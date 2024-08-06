@@ -2,7 +2,7 @@
 
 from configparser import ConfigParser
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Any, Dict, List
 
 import click
 import pluggy
@@ -64,7 +64,8 @@ def get_reqfile(ctx: click.Context) -> Path:
         else:
             reqfile = Path(ctx.params["requirements"])
     elif Path(ctx.params["config"]).name == "pyproject.toml":
-        parser = load(open(Path(ctx.params["config"])))
+        with open(Path(ctx.params["config"])) as buf:
+            parser = load(buf)
         if "dependencies" in parser["project"]:
             reqfile = Path(ctx.params["config"])
         else:
@@ -80,7 +81,9 @@ def post_run_hook(testers: List, conf: Dict):
     """Refresh a locked requirements file based on the test output."""
     ctx = click.get_current_context()
     if not ctx.params["export"]:
-        LOG.info("Skipping ``uv pip compile`` as the requirements have not been updated.")
+        LOG.info(
+            "Skipping ``uv pip compile`` as the requirements have not been updated."
+        )
     elif testers[-1].status:
         reqfile = get_reqfile(ctx=ctx)
         try:

@@ -162,30 +162,34 @@ def test_update_reqs_cfg(mock_popen, mock_cpopen, mock_builder):
     assert result.exit_code == 0
     assert mock_popen.call_args_list == [
         call(
-            (f"{str(py_loc)}", "-m", "pip", "install", "."),
+            ("uv", "pip", "install", f"--python={py_loc!s}", "."),
             stdout=-1,
+            stderr=-1,
             universal_newlines=True,
         ),
         call(
             (
-                f"{str(py_loc)}",
-                "-m",
+                "uv",
                 "pip",
                 "install",
+                f"--python={py_loc!s}",
                 "myupgrade",
                 "--upgrade",
             ),
             stdout=-1,
+            stderr=-1,
             universal_newlines=True,
         ),
         call(
-            (f"{str(py_loc)}", "-m", "pip", "list", "--format", "json"),
+            ("uv", "pip", "list", f"--python={py_loc!s}", "--format", "json"),
             stdout=-1,
+            stderr=-1,
             universal_newlines=True,
         ),
         call(
-            (f"{str(py_loc)}", "-m", "pip", "list", "--format", "json"),
+            ("uv", "pip", "list", f"--python={py_loc!s}", "--format", "json"),
             stdout=-1,
+            stderr=-1,
             universal_newlines=True,
         ),
         call(
@@ -199,6 +203,7 @@ def test_update_reqs_cfg(mock_popen, mock_cpopen, mock_builder):
                 "setup.cfg",
             ),
             stdout=-1,
+            stderr=-1,
             universal_newlines=True,
         ),
     ]
@@ -219,7 +224,7 @@ def test_update_reqs_toml(mock_popen, mock_cpopen, mock_builder):
     with runner.isolated_filesystem() as loc:
         with open("pyproject.toml", "w") as outfile:
             outfile.write(TOML_ART)
-        result = runner.invoke(cli, [f"--config=pyproject.toml", "--export"])
+        result = runner.invoke(cli, ["--config=pyproject.toml", "--export"])
 
     env_loc = Path(loc) / ".edgetest" / "myenv"
     if platform.system() == "Windows":
@@ -230,30 +235,34 @@ def test_update_reqs_toml(mock_popen, mock_cpopen, mock_builder):
     assert result.exit_code == 0
     assert mock_popen.call_args_list == [
         call(
-            (f"{str(py_loc)}", "-m", "pip", "install", "."),
+            ("uv", "pip", "install", f"--python={py_loc!s}", "."),
             stdout=-1,
+            stderr=-1,
             universal_newlines=True,
         ),
         call(
             (
-                f"{str(py_loc)}",
-                "-m",
+                "uv",
                 "pip",
                 "install",
+                f"--python={py_loc!s}",
                 "myupgrade",
                 "--upgrade",
             ),
             stdout=-1,
+            stderr=-1,
             universal_newlines=True,
         ),
         call(
-            (f"{str(py_loc)}", "-m", "pip", "list", "--format", "json"),
+            ("uv", "pip", "list", f"--python={py_loc!s}", "--format", "json"),
             stdout=-1,
+            stderr=-1,
             universal_newlines=True,
         ),
         call(
-            (f"{str(py_loc)}", "-m", "pip", "list", "--format", "json"),
+            ("uv", "pip", "list", f"--python={py_loc!s}", "--format", "json"),
             stdout=-1,
+            stderr=-1,
             universal_newlines=True,
         ),
         call(
@@ -268,6 +277,7 @@ def test_update_reqs_toml(mock_popen, mock_cpopen, mock_builder):
                 "pyproject.toml",
             ),
             stdout=-1,
+            stderr=-1,
             universal_newlines=True,
         ),
     ]
