@@ -155,7 +155,7 @@ def test_update_reqs_cfg(mock_popen, mock_cpopen, mock_builder):
 
     env_loc = Path(loc) / ".edgetest" / "myenv"
     if platform.system() == "Windows":
-        py_loc = str(Path(env_loc) / "Scripts" / "python")
+        py_loc = str(Path(env_loc) / "Scripts" / "python.exe")
     else:
         py_loc = str(Path(env_loc) / "bin" / "python")
 
@@ -228,7 +228,7 @@ def test_update_reqs_toml(mock_popen, mock_cpopen, mock_builder):
 
     env_loc = Path(loc) / ".edgetest" / "myenv"
     if platform.system() == "Windows":
-        py_loc = str(Path(env_loc) / "Scripts" / "python")
+        py_loc = str(Path(env_loc) / "Scripts" / "python.exe")
     else:
         py_loc = str(Path(env_loc) / "bin" / "python")
 
