@@ -1,7 +1,7 @@
 # pip-tools integration for edgetest
 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/edgetest-pip-tools)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![PyPI version](https://badge.fury.io/py/edgetest-pip-tools.svg)](https://badge.fury.io/py/edgetest-pip-tools)
 [![Anaconda-Server Badge](https://anaconda.org/conda-forge/edgetest-pip-tools/badges/version.svg)](https://anaconda.org/conda-forge/edgetest-pip-tools)
 
@@ -37,7 +37,7 @@ Getting Started
 ---------------
 
 This `edgetest` plugin runs after the test execution. If the last environment successfully
-passes, this plugin will refresh `requirements.txt` using `pip-tools`. To use this plugin,
+passes, this plugin will refresh `requirements.txt` using `uv pip compile`. To use this plugin,
 you must use the ``--export`` flag in your CLI call:
 
 ```console

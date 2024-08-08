@@ -22,7 +22,7 @@ Getting Started
 ---------------
 
 This `edgetest` plugin runs after the test execution. If the last environment successfully
-passes, this plugin will refresh `requirements.txt` using `pip-tools`. To use this plugin,
+passes, this plugin will refresh `requirements.txt` using `uv pip compile`. To use this plugin,
 supply ``--export`` to your CLI call:
 
 
@@ -59,7 +59,7 @@ If you want to specify a PyPI index, supply `index_url` in your configuration:
             index_url = "https://myindex.com"
 
 
-If you want to include extra installations in your `pip-tools` call add a newline-separated list of
+If you want to include extra installations in your `uv pip compile` call add a newline-separated list of
 extras:
 
 
