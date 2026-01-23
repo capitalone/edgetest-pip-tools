@@ -87,7 +87,7 @@ readme = { file = ["README.md"], content-type = "text/markdown" }
 # BUMPVER --------------------------------------------------------------------
 
 [bumpver]
-current_version = "2024.8.0"
+current_version = "2026.1.0"
 version_pattern = "YYYY.MM.INC0"
 
 [bumpver.file_patterns]
@@ -150,6 +150,7 @@ ignore = [
 	"E117",  # Check indentation level. Using formatter instead.
 	"E203",  # Check whitespace. Using formatter instead.
 	"E501",  # Line too long. Using formatter instead.
+	"RUF067", # non-empty-init-module
 	"D206",  # Docstring indentation. Using formatter instead.
 	"D300",  # Use triple single quotes. Using formatter instead.
 	"SIM108",  # Use ternary operator instead of if-else blocks.
