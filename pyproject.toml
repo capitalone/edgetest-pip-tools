@@ -44,7 +44,7 @@ optional-dependencies.dev = [
 ]
 optional-dependencies.docs = [
   "furo",
-  "sphinx",
+  "sphinx<9",
   "sphinx-copybutton",
   "sphinx-tabs",
 ]

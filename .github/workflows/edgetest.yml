@@ -12,11 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: dev
+          ref: main
       - id: run-edgetest
         uses: fdosani/run-edgetest-action@v1.3
         with:
           edgetest-flags: '-c setup.cfg --export'
-          base-branch: 'dev'
+          base-branch: 'main'
           skip-pr: 'false'
           python-version: '3.10'
