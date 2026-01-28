@@ -1,2 +1,0 @@
-[edgetest]
-piptools = edgetest_pip_tools.plugin
