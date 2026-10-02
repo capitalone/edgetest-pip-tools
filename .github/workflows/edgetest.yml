@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     name: running edgetest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # pin@v7.0.1
         with:
           ref: main
       - id: run-edgetest
-        uses: fdosani/run-edgetest-action@v1.3
+        uses: edgetest-dev/run-edgetest-action@8ceeac94abe951d6b51305454bc6d0ff2096e2ec # pin@v1.7
         with:
-          edgetest-flags: '-c setup.cfg --export'
+          edgetest-flags: '-c pyproject.toml --export'
           base-branch: 'main'
           skip-pr: 'false'
           python-version: '3.10'

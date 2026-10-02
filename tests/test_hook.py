@@ -135,10 +135,9 @@ def test_addoption_toml(config, tmpdir):
     assert validator.validate(cfg)
 
 
-@patch("edgetest.lib.EnvBuilder", autospec=True)
 @patch("edgetest.core.Popen", autospec=True)
 @patch("edgetest.utils.Popen", autospec=True)
-def test_update_reqs_cfg(mock_popen, mock_cpopen, mock_builder):
+def test_update_reqs_cfg(mock_popen, mock_cpopen):
     """Test calling ``pip-tools``."""
     mock_popen.return_value.communicate.return_value = (PIP_LIST, "error")
     type(mock_popen.return_value).returncode = PropertyMock(return_value=0)
@@ -161,6 +160,12 @@ def test_update_reqs_cfg(mock_popen, mock_cpopen, mock_builder):
 
     assert result.exit_code == 0
     assert mock_popen.call_args_list == [
+        call(
+            ("uv", "venv", f"{env_loc!s}"),
+            stdout=-1,
+            stderr=-1,
+            universal_newlines=True,
+        ),
         call(
             ("uv", "pip", "install", f"--python={py_loc!s}", "."),
             stdout=-1,
@@ -209,10 +214,9 @@ def test_update_reqs_cfg(mock_popen, mock_cpopen, mock_builder):
     ]
 
 
-@patch("edgetest.lib.EnvBuilder", autospec=True)
 @patch("edgetest.core.Popen", autospec=True)
 @patch("edgetest.utils.Popen", autospec=True)
-def test_update_reqs_toml(mock_popen, mock_cpopen, mock_builder):
+def test_update_reqs_toml(mock_popen, mock_cpopen):
     """Test calling ``pip-tools``."""
     mock_popen.return_value.communicate.return_value = (PIP_LIST, "error")
     type(mock_popen.return_value).returncode = PropertyMock(return_value=0)
@@ -234,6 +238,12 @@ def test_update_reqs_toml(mock_popen, mock_cpopen, mock_builder):
 
     assert result.exit_code == 0
     assert mock_popen.call_args_list == [
+        call(
+            ("uv", "venv", f"{env_loc!s}"),
+            stdout=-1,
+            stderr=-1,
+            universal_newlines=True,
+        ),
         call(
             ("uv", "pip", "install", f"--python={py_loc!s}", "."),
             stdout=-1,
