@@ -171,13 +171,3 @@ version_pattern = "YYYY.MM.INC0"
 ]
 
 # MYPY -----------------------------------------------------------------------
-
-# EDGETEST -------------------------------------------------------------------
-
-[tool.edgetest]
-
-[[tool.edgetest.env]]
-name = "core"
-python_version = "3.12"
-upgrade = ["edgetest"]
-extras = ["tests"]
