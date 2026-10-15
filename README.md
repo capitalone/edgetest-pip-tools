@@ -41,7 +41,7 @@ passes, this plugin will refresh `requirements.txt` using `uv pip compile`. To u
 you must use the ``--export`` flag in your CLI call:
 
 ```console
-$ edgetest --config setup.cfg --export
+$ edgetest --config pyproject.toml --export
 ```
 
 If you want to specify a PyPI index supply `index_url` in your configuration:

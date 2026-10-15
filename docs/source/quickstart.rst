@@ -28,12 +28,6 @@ supply ``--export`` to your CLI call:
 
 .. tabs::
 
-    .. tab:: .cfg
-
-        .. code-block:: console
-
-            $ edgetest --config setup.cfg --export
-
     .. tab:: .toml
 
         .. code-block:: console
@@ -42,21 +36,10 @@ supply ``--export`` to your CLI call:
 
 If you want to specify a PyPI index, supply `index_url` in your configuration:
 
-.. tabs::
+.. code-block:: toml
 
-    .. tab:: .cfg
-
-        .. code-block:: ini
-
-            [edgetest.pip_tools]
-            index_url = https://myindex.com
-
-    .. tab:: .toml
-
-        .. code-block:: toml
-
-            [edgetest.pip_tools]
-            index_url = "https://myindex.com"
+    [tool.edgetest.pip_tools]
+    index_url = "https://myindex.com"
 
 
 If you want to include extra installations in your `uv pip compile` call add a newline-separated list of
