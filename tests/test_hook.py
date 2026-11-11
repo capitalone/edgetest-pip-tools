@@ -1,6 +1,7 @@
 """Test the hook through the CLI."""
 
 import platform
+import sys
 from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import PropertyMock, call, patch
@@ -116,7 +117,7 @@ def test_update_reqs_toml(mock_popen, mock_cpopen):
     assert result.exit_code == 0
     assert _normalize(mock_popen.call_args_list) == [
         call(
-            ("uv", "venv", f"{env_loc!s}"),
+            ("uv", "venv", f"{env_loc!s}", f"--python={sys.executable!s}"),
             stdout=-1,
             stderr=-1,
             universal_newlines=True,
