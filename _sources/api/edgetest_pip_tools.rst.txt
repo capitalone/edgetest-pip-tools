@@ -7,13 +7,13 @@ Submodules
 
 .. automodule:: edgetest_pip_tools.plugin
    :members:
-   :show-inheritance:
    :undoc-members:
+   :show-inheritance:
 
 Module contents
 ---------------
 
 .. automodule:: edgetest_pip_tools
    :members:
-   :show-inheritance:
    :undoc-members:
+   :show-inheritance:

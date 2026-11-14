@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Developer instructions" href="developer.html"><link rel="prev" title="Welcome to the edgetest-pip-tools documentation!" href="index.html">
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
         <title>Quick Start - pip-tools integration for edgetest documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
@@ -262,35 +262,26 @@
 passes, this plugin will refresh <cite>requirements.txt</cite> using <cite>uv pip compile</cite>. To use this plugin,
 supply <code class="docutils literal notranslate"><span class="pre">--export</span></code> to your CLI call:</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">.cfg</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">.toml</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>edgetest<span class="w"> </span>--config<span class="w"> </span>setup.cfg<span class="w"> </span>--export
-</pre></div>
-</div>
-</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>edgetest<span class="w"> </span>--config<span class="w"> </span>pyproject.toml<span class="w"> </span>--export
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">.toml</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>edgetest<span class="w"> </span>--config<span class="w"> </span>pyproject.toml<span class="w"> </span>--export
 </pre></div>
 </div>
 </div></div>
 <p>If you want to specify a PyPI index, supply <cite>index_url</cite> in your configuration:</p>
-<div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">.cfg</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">.toml</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[edgetest.pip_tools]</span>
-<span class="na">index_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://myindex.com</span>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.edgetest.pip_tools]</span>
+<span class="n">index_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"https://myindex.com"</span>
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[edgetest.pip_tools]</span>
-<span class="n">index_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://myindex.com&quot;</span>
-</pre></div>
-</div>
-</div></div>
 <p>If you want to include extra installations in your <cite>uv pip compile</cite> call add a newline-separated list of
 extras:</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">.cfg</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">.toml</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[edgetest.pip_tools]</span>
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">.cfg</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">.toml</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[edgetest.pip_tools]</span>
 <span class="na">extras</span><span class="w"> </span><span class="o">=</span>
 <span class="w">    </span><span class="na">complete</span>
 <span class="w">    </span><span class="na">another</span>
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[edgetest.pip_tools]</span>
-<span class="n">extras</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;complete,another&quot;</span>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[edgetest.pip_tools]</span>
+<span class="n">extras</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"complete,another"</span>
 </pre></div>
 </div>
 </div></div>
